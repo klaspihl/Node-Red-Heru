@@ -1,0 +1,2487 @@
+[
+    {
+        "id": "97e478c1a0ed5bfc",
+        "type": "tab",
+        "label": "FTX",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "39234e7df7cf0f20",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "read FTX",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b276c0e6891fca0e",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1280,
+        "wires": [
+            [
+                "9309551bdf32637f"
+            ]
+        ]
+    },
+    {
+        "id": "91bb900c1166f8a7",
+        "type": "modbus-read",
+        "z": "97e478c1a0ed5bfc",
+        "name": "16 bit integer register R",
+        "topic": "",
+        "showStatusActivities": true,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "InputRegister",
+        "adr": "0",
+        "quantity": "33",
+        "rate": "20",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "b31f8b0f1228b516",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 160,
+        "y": 260,
+        "wires": [
+            [],
+            [
+                "ebdb45f9e65907a6"
+            ]
+        ]
+    },
+    {
+        "id": "e9752b9411eef0c0",
+        "type": "modbus-read",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Discrete Output (1bit) R/W",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "0",
+        "quantity": "6",
+        "rate": "20",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "b31f8b0f1228b516",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [],
+            [
+                "f44f8476dc1c822a",
+                "eb6c0c3b89be3cb3",
+                "8cf6a87851a0203d",
+                "bf3ee48f901b80c2"
+            ]
+        ]
+    },
+    {
+        "id": "33dda9d941c6aa1f",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1240,
+        "wires": [
+            [
+                "9309551bdf32637f"
+            ]
+        ]
+    },
+    {
+        "id": "9309551bdf32637f",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Boost",
+        "showStatusActivities": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "2",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 430,
+        "y": 1260,
+        "wires": [
+            [
+                "ab9670a11b72a431",
+                "c87a392bf0212535"
+            ],
+            [
+                "ab9670a11b72a431"
+            ]
+        ]
+    },
+    {
+        "id": "78cd2605bd542d1c",
+        "type": "http in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Read FTX",
+        "url": "/ftxdata",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "13147ccfb724ed2e"
+            ]
+        ]
+    },
+    {
+        "id": "608d92e9b146e801",
+        "type": "http response",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "x": 1010,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "13147ccfb724ed2e",
+        "type": "change",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ftxdata",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 120,
+        "wires": [
+            [
+                "608d92e9b146e801"
+            ]
+        ]
+    },
+    {
+        "id": "6d1f010b95f7f0ff",
+        "type": "change",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ftxdata",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bffca1b858bce343",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/data",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1140,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "496dea066c83ef60",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Parse modbus",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"Outdoor temperature\":  {{ payload.data.1 }},\n    \"Supply air temperature\": {{ payload.data.2 }},\n    \"Exhaust air temperature\": {{ payload.data.3 }},\n    \"Waste air temperature\": {{ payload.data.4 }},\n    \"Water temperature\": {{ payload.data.5 }},\n    \"Heat Recovery Wheel temperature\": {{ payload.data.6 }},\n    \"Room temperature\": {{ payload.data.7 }},\n    \"Supply pressure x0.1Pa Valid only if pressure sensor connected.\": {{ payload.data.11 }},\n    \"Exhaust pressure x0.1Pa Valid only if pressure sensor connected.\": {{ payload.data.12 }},\n    \"Relative humidity x0.1% Valid only if RH sensor connected.\": {{ payload.data.13 }},\n    \"Carbon dioxide PPM Valid only if CO2 sensor conneced.\": {{ payload.data.14 }},\n    \"Filter days left Number of days to filter change.\": {{ payload.data.19 }},\n    \"Current weektimer program\": {{ payload.data.20 }},\n    \"Current fan speed\": {{ payload.data.21 }},\n    \"Current supply fan step\": {{ payload.data.22 }},\n    \"Current exhaust fan step\": {{ payload.data.23 }},\n    \"Current supply fan power %\": {{ payload.data.24 }},\n    \"Current exhaust fan power %\": {{ payload.data.25 }},\n    \"Current supply fan speed RPM\": {{ payload.data.26 }},\n    \"Current exhaust fan speed RPM\": {{ payload.data.27 }},\n    \"Current heating power\": {{ payload.data.28 }},\n    \"Current heat/cold recovery power\": {{ payload.data.29 }},\n    \"Current cooling power\": {{ payload.data.30 }},\n    \"Supply fan control voltage\": {{ payload.data.31 }},\n    \"Exhaust fan control voltage\": {{ payload.data.32 }},\n    \"outdoor\": {{ payload.data.1 }}\n }",
+        "output": "json",
+        "x": 620,
+        "y": 300,
+        "wires": [
+            [
+                "56da4e01592ab003"
+            ]
+        ]
+    },
+    {
+        "id": "ebdb45f9e65907a6",
+        "type": "change",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Scale temerature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload.data[1]",
+                "pt": "msg",
+                "to": "payload.data[1]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[2]",
+                "pt": "msg",
+                "to": "payload.data[2]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[3]",
+                "pt": "msg",
+                "to": "payload.data[3]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[4]",
+                "pt": "msg",
+                "to": "payload.data[4]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[5]",
+                "pt": "msg",
+                "to": "payload.data[5]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[6]",
+                "pt": "msg",
+                "to": "payload.data[6]/10",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "payload.data[7]",
+                "pt": "msg",
+                "to": "payload.data[7]/10",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 390,
+        "y": 240,
+        "wires": [
+            [
+                "3c7ca75329ee0968"
+            ]
+        ]
+    },
+    {
+        "id": "f44f8476dc1c822a",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Parse modbus",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"Unit on\": {{ payload.data.0 }},\n    \"Overpressure mode\": {{ payload.data.1 }},\n    \"Boost mode\": {{ payload.data.2 }},\n    \"Away mode\": {{ payload.data.3 }},\n    \"Clear Alarms\": {{ payload.data.4 }},\n    \"Reset filter timer\": {{ payload.data.5 }}\n}",
+        "output": "json",
+        "x": 620,
+        "y": 380,
+        "wires": [
+            [
+                "56da4e01592ab003"
+            ]
+        ]
+    },
+    {
+        "id": "56da4e01592ab003",
+        "type": "join",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "35",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 830,
+        "y": 380,
+        "wires": [
+            [
+                "6d1f010b95f7f0ff",
+                "45637941efc94993"
+            ]
+        ]
+    },
+    {
+        "id": "ea043be6b8d95ade",
+        "type": "modbus-read",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Red Holding register",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "0",
+        "quantity": "28",
+        "rate": "20",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "b31f8b0f1228b516",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [],
+            [
+                "3dbb9215dabf1b0c",
+                "67c23dfd6fe7a7cd",
+                "aca0302a5898a705"
+            ]
+        ]
+    },
+    {
+        "id": "a3759154ce6978fd",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Summer cooling",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "3927a9312e12a378",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Summer cooling on",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "15",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 430,
+        "y": 1000,
+        "wires": [
+            [
+                "dac5c641c09ce0c6"
+            ],
+            [
+                "a3759154ce6978fd"
+            ]
+        ]
+    },
+    {
+        "id": "ab9670a11b72a431",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Boost",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "df2c5bf7ebd4cc10",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "255",
+        "payloadType": "num",
+        "x": 90,
+        "y": 1000,
+        "wires": [
+            [
+                "3927a9312e12a378"
+            ]
+        ]
+    },
+    {
+        "id": "a4505ec63c597284",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 90,
+        "y": 1040,
+        "wires": [
+            [
+                "3927a9312e12a378"
+            ]
+        ]
+    },
+    {
+        "id": "5f28c279c5b001f1",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Read data to MQTT",
+        "info": "",
+        "x": 130,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ebcaeca20b29cfe9",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set SNC",
+        "info": "",
+        "x": 100,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "3dbb9215dabf1b0c",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Parse modbus",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"User fan speed\": {{ payload.data.0 }},\n    \"Temperature setpoint\": {{ payload.data.1 }},\n    \"Supply fan speed EC\": {{ payload.data.2 }},\n    \"Exhaust fan speed EC\": {{ payload.data.3 }},\n    \"Min exhaust fan speed EC\": {{ payload.data.4 }},\n    \"Mod exhaust fan speed EC\": {{ payload.data.5 }},\n    \"Max exhaust fan speed EC\": {{ payload.data.6 }},\n    \"Min supply temperature\": {{ payload.data.9 }},\n    \"Max supply temperature\": {{ payload.data.10 }},\n    \"Regulation mode\": {{ payload.data.11 }},\n    \"SNC indoor-outdoor diff. Limit\": {{ payload.data.12 }},\n    \"SNC exhaust low limit\": {{ payload.data.13 }},\n    \"SNC exhaust high limit\": {{ payload.data.14 }},\n    \"SNC enable\": {{ payload.data.15 }},\n    \"Freeze protection limit\": {{ payload.data.16 }},\n    \"CO2 limit\": {{ payload.data.19 }},\n    \"CO2 interval\": {{ payload.data.20 }},\n    \"CO2 ramp\": {{ payload.data.21 }},\n    \"RH limit\": {{ payload.data.22 }},\n    \"RH interval\": {{ payload.data.23 }},\n    \"RH ramp\": {{ payload.data.24 }},\n    \"Boost speed\": {{ payload.data.25 }},\n    \"Boost duration\": {{ payload.data.26 }},\n    \"Overpressure duration\": {{ payload.data.27 }}\n}",
+        "output": "json",
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [
+                "56da4e01592ab003"
+            ]
+        ]
+    },
+    {
+        "id": "725776f2f1f1e55e",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set boost",
+        "info": "",
+        "x": 100,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6053311309d11acb",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Endpoint data",
+        "info": "",
+        "x": 110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "741111d31b304521",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1480,
+        "wires": [
+            [
+                "42132f148702f968"
+            ]
+        ]
+    },
+    {
+        "id": "91077bebbfb570c2",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1440,
+        "wires": [
+            [
+                "42132f148702f968"
+            ]
+        ]
+    },
+    {
+        "id": "42132f148702f968",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Overpressure ",
+        "showStatusActivities": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "1",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 400,
+        "y": 1440,
+        "wires": [
+            [
+                "a5b736d23743332c",
+                "428e816d77093863"
+            ],
+            [
+                "a5b736d23743332c"
+            ]
+        ]
+    },
+    {
+        "id": "a5b736d23743332c",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Overpressure ",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "a92d87336ae88582",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set Overpressure ",
+        "info": "",
+        "x": 120,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "5be00c1e36316d51",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1740,
+        "wires": [
+            [
+                "8de185f1d26f8fdb"
+            ]
+        ]
+    },
+    {
+        "id": "176e9d30857b2de0",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 1700,
+        "wires": [
+            [
+                "8de185f1d26f8fdb"
+            ]
+        ]
+    },
+    {
+        "id": "8de185f1d26f8fdb",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Away",
+        "showStatusActivities": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "3",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 410,
+        "y": 1700,
+        "wires": [
+            [
+                "4d42736023d036af",
+                "3c4865b3e7c74952"
+            ],
+            [
+                "4d42736023d036af"
+            ]
+        ]
+    },
+    {
+        "id": "4d42736023d036af",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Away",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "3670bbe544c699de",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set Away",
+        "info": "",
+        "x": 100,
+        "y": 1640,
+        "wires": []
+    },
+    {
+        "id": "3430488e58eea1ab",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "240",
+        "payloadType": "num",
+        "x": 90,
+        "y": 1200,
+        "wires": [
+            [
+                "f47a83b37b86afcd"
+            ]
+        ]
+    },
+    {
+        "id": "f47a83b37b86afcd",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Boost timer",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "26",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 410,
+        "y": 1220,
+        "wires": [
+            [],
+            [
+                "ab9670a11b72a431"
+            ]
+        ]
+    },
+    {
+        "id": "789141c5943da50c",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "10",
+        "payloadType": "num",
+        "x": 90,
+        "y": 1520,
+        "wires": [
+            [
+                "f8346e4c267731fd"
+            ]
+        ]
+    },
+    {
+        "id": "f8346e4c267731fd",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Overpressure timer",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "27",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 410,
+        "y": 1480,
+        "wires": [
+            [],
+            [
+                "a5b736d23743332c"
+            ]
+        ]
+    },
+    {
+        "id": "ec538c439473d006",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/SNC/set",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 1080,
+        "wires": [
+            [
+                "3927a9312e12a378"
+            ]
+        ]
+    },
+    {
+        "id": "9669863a29396bdf",
+        "type": "function",
+        "z": "97e478c1a0ed5bfc",
+        "name": "true/false",
+        "func": "const enable = Boolean(msg.payload.sncenable);\nconst value = enable ? 255 : 0;\nreturn {\n    payload: value\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1080,
+        "wires": [
+            [
+                "3927a9312e12a378"
+            ]
+        ]
+    },
+    {
+        "id": "029f39d8c8da7320",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Boostmode/set",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1320,
+        "wires": [
+            [
+                "0e77bc4a44cd03c7"
+            ]
+        ]
+    },
+    {
+        "id": "0e77bc4a44cd03c7",
+        "type": "function",
+        "z": "97e478c1a0ed5bfc",
+        "name": "true/false",
+        "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 1320,
+        "wires": [
+            [
+                "9309551bdf32637f"
+            ]
+        ]
+    },
+    {
+        "id": "7b9e5b0eeee649b6",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Overpressuremode/set",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1560,
+        "wires": [
+            [
+                "89834e45d5d0af3e",
+                "a5b736d23743332c"
+            ]
+        ]
+    },
+    {
+        "id": "89834e45d5d0af3e",
+        "type": "function",
+        "z": "97e478c1a0ed5bfc",
+        "name": "true/false",
+        "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 1560,
+        "wires": [
+            [
+                "42132f148702f968"
+            ]
+        ]
+    },
+    {
+        "id": "e443d4b0efdbf5db",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Awaymode/set",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 1780,
+        "wires": [
+            [
+                "4f408f5c47159e3a"
+            ]
+        ]
+    },
+    {
+        "id": "4f408f5c47159e3a",
+        "type": "function",
+        "z": "97e478c1a0ed5bfc",
+        "name": "true/false",
+        "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 1780,
+        "wires": [
+            [
+                "8de185f1d26f8fdb"
+            ]
+        ]
+    },
+    {
+        "id": "9c1dc9e9d952b72d",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Temperature",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 2020,
+        "wires": []
+    },
+    {
+        "id": "0f22599be8a87daa",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set temperature",
+        "info": "",
+        "x": 120,
+        "y": 1880,
+        "wires": []
+    },
+    {
+        "id": "3ee7d75f551de75f",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Manual temp 21",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "25",
+        "payloadType": "num",
+        "x": 120,
+        "y": 2000,
+        "wires": [
+            [
+                "5f2f682a7889d0d2"
+            ]
+        ]
+    },
+    {
+        "id": "5f2f682a7889d0d2",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Temperature setpoint",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "1",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 460,
+        "y": 1940,
+        "wires": [
+            [
+                "faa5a1a309f56e2c"
+            ],
+            [
+                "9c1dc9e9d952b72d"
+            ]
+        ]
+    },
+    {
+        "id": "67c23dfd6fe7a7cd",
+        "type": "change",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "$now()",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "0cb26c22f3630235"
+            ]
+        ]
+    },
+    {
+        "id": "0cb26c22f3630235",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "DateTimeObject",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"Timestamp\": \"{{ payload }}\"\n}",
+        "output": "json",
+        "x": 620,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "45637941efc94993",
+        "type": "rbe",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 990,
+        "y": 380,
+        "wires": [
+            [
+                "bffca1b858bce343",
+                "39234e7df7cf0f20"
+            ]
+        ]
+    },
+    {
+        "id": "1b9f2855a4a5d1ac",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Electric heater",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 2240,
+        "wires": []
+    },
+    {
+        "id": "6e95dd4ac7e14797",
+        "type": "modbus-write",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Electric heater",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "HoldingRegister",
+        "adr": "50",
+        "quantity": "1",
+        "server": "b31f8b0f1228b516",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 420,
+        "y": 2180,
+        "wires": [
+            [
+                "d1ceae8269d6346a"
+            ],
+            [
+                "1b9f2855a4a5d1ac"
+            ]
+        ]
+    },
+    {
+        "id": "1edfdc6fe79e00af",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "255",
+        "payloadType": "num",
+        "x": 90,
+        "y": 2180,
+        "wires": [
+            [
+                "6e95dd4ac7e14797"
+            ]
+        ]
+    },
+    {
+        "id": "19483f5baa325d00",
+        "type": "inject",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 90,
+        "y": 2220,
+        "wires": [
+            [
+                "6e95dd4ac7e14797"
+            ]
+        ]
+    },
+    {
+        "id": "e218794e3f5b8db1",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Set Electric heater",
+        "info": "",
+        "x": 130,
+        "y": 2120,
+        "wires": []
+    },
+    {
+        "id": "d343ab3ea1d6c5de",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Electricheater/set",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 2260,
+        "wires": [
+            [
+                "6e95dd4ac7e14797"
+            ]
+        ]
+    },
+    {
+        "id": "b2efcd4e3ba0d888",
+        "type": "modbus-read",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Discrete Input (1bit) Read only",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Input",
+        "adr": "0",
+        "quantity": "33",
+        "rate": "20",
+        "rateUnit": "s",
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "server": "b31f8b0f1228b516",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 180,
+        "y": 680,
+        "wires": [
+            [
+                "c5c066e14570ba7b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c5c066e14570ba7b",
+        "type": "debug",
+        "z": "97e478c1a0ed5bfc",
+        "name": "alarm registers",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "c87a392bf0212535",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Boostmode/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1140,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "d1ceae8269d6346a",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Electricheater/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1140,
+        "y": 2180,
+        "wires": []
+    },
+    {
+        "id": "3c4865b3e7c74952",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Awaymode/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1130,
+        "y": 1700,
+        "wires": []
+    },
+    {
+        "id": "428e816d77093863",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Overpressuremode/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1160,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "dac5c641c09ce0c6",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/SNC/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1110,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "eb6c0c3b89be3cb3",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Overpressure mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"value\": {{ payload.data.1 }}\n}",
+        "output": "json",
+        "x": 520,
+        "y": 800,
+        "wires": [
+            [
+                "2fb8b06c09c77149"
+            ]
+        ]
+    },
+    {
+        "id": "2fb8b06c09c77149",
+        "type": "rbe",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 800,
+        "wires": [
+            [
+                "428e816d77093863"
+            ]
+        ]
+    },
+    {
+        "id": "8cf6a87851a0203d",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Boost mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"value\": {{ payload.data.2 }}\n}",
+        "output": "json",
+        "x": 490,
+        "y": 840,
+        "wires": [
+            [
+                "e5fe65340517f8a8"
+            ]
+        ]
+    },
+    {
+        "id": "e5fe65340517f8a8",
+        "type": "rbe",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 840,
+        "wires": [
+            [
+                "c87a392bf0212535"
+            ]
+        ]
+    },
+    {
+        "id": "bf3ee48f901b80c2",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Away mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"value\": {{ payload.data.3 }}\n}",
+        "output": "json",
+        "x": 490,
+        "y": 880,
+        "wires": [
+            [
+                "a1ca6c8910764535"
+            ]
+        ]
+    },
+    {
+        "id": "a1ca6c8910764535",
+        "type": "rbe",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 880,
+        "wires": [
+            [
+                "3c4865b3e7c74952"
+            ]
+        ]
+    },
+    {
+        "id": "31ead068c35a18eb",
+        "type": "comment",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Update MQTT from FTX side",
+        "info": "",
+        "x": 540,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "3c7ca75329ee0968",
+        "type": "range",
+        "z": "97e478c1a0ed5bfc",
+        "minin": "0",
+        "maxin": "255",
+        "minout": "0",
+        "maxout": "100",
+        "action": "scale",
+        "round": true,
+        "property": "payload.data[28]",
+        "name": "Scale heat power",
+        "x": 590,
+        "y": 240,
+        "wires": [
+            [
+                "496dea066c83ef60"
+            ]
+        ]
+    },
+    {
+        "id": "284bd63250bac5dd",
+        "type": "mqtt in",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Temperaturesetpoint/set",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 1940,
+        "wires": [
+            [
+                "9c1dc9e9d952b72d",
+                "5f2f682a7889d0d2"
+            ]
+        ]
+    },
+    {
+        "id": "faa5a1a309f56e2c",
+        "type": "mqtt out",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "topic": "ftx/Temperaturesetpoint/state",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1160,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "aca0302a5898a705",
+        "type": "template",
+        "z": "97e478c1a0ed5bfc",
+        "name": "Temperature setpoint",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\n    \"value\": {{ payload.data.1 }}\n}",
+        "output": "json",
+        "x": 520,
+        "y": 920,
+        "wires": [
+            [
+                "8b4d45013b93d1e9"
+            ]
+        ]
+    },
+    {
+        "id": "8b4d45013b93d1e9",
+        "type": "rbe",
+        "z": "97e478c1a0ed5bfc",
+        "name": "",
+        "func": "rbei",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 690,
+        "y": 920,
+        "wires": [
+            [
+                "faa5a1a309f56e2c"
+            ]
+        ]
+    },
+    {
+        "id": "b31f8b0f1228b516",
+        "type": "modbus-client",
+        "name": "modbus in",
+        "clienttype": "simpleser",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttySC0",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "57600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": "1",
+        "commandDelay": "1",
+        "clientTimeout": "10000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "2000",
+        "parallelUnitIdsAllowed": true,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "26516bc9a19c6fd2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "${MQTT_Server}",
+        "port": "${MQTT_Server_Port}",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e64ba185b16788ff",
+        "type": "tab",
+        "label": "FTX MQTT Autodiscovery",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "26de88e20150c590",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Outdoor temperature",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"device_class\": \"temperature\",\n    \"state_class\": \"measurement\",\n    \"name\": \"Outdoor temperature\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Outdoor temperature\",\n    \"value_template\": \" {{value_json['Outdoor temperature']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:home-thermometer-outline\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "1c29781b0f74940f"
+            ]
+        ]
+    },
+    {
+        "id": "88843ae61100ac85",
+        "type": "comment",
+        "z": "e64ba185b16788ff",
+        "name": "Sensors temperature",
+        "info": "",
+        "x": 580,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "1c29781b0f74940f",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/Outdoortemperature/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 940,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "735689201b11d524",
+        "type": "mqtt in",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/status",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "26516bc9a19c6fd2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 120,
+        "wires": [
+            [
+                "a6221bc2d96ac1bd"
+            ]
+        ]
+    },
+    {
+        "id": "e1c5df332c1a2496",
+        "type": "inject",
+        "z": "e64ba185b16788ff",
+        "name": "Trigger sensor update",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "online",
+        "payloadType": "str",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "a6221bc2d96ac1bd"
+            ]
+        ]
+    },
+    {
+        "id": "686bdc70be426ce6",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Supply air temperature",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"device_class\": \"temperature\",\n    \"state_class\": \"measurement\",\n    \"name\": \"Supply air temperature\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Supply air temperature\",\n    \"value_template\": \"{{ value_json['Supply air temperature'] }}\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 240,
+        "wires": [
+            [
+                "47240900f086f4bf"
+            ]
+        ]
+    },
+    {
+        "id": "47240900f086f4bf",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/Supplyairtemperature/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 940,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2684a1d98bed3129",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Exhaust air temperature",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"device_class\": \"temperature\",\n    \"state_class\": \"measurement\",\n    \"name\": \"Exhaust air temperature\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Exhaust air temperature\",\n    \"value_template\": \" {{value_json['Exhaust air temperature']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:home-thermometer\"\n}",
+        "output": "json",
+        "x": 590,
+        "y": 320,
+        "wires": [
+            [
+                "060516bc48c567ee"
+            ]
+        ]
+    },
+    {
+        "id": "060516bc48c567ee",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/Exhaustairtemperature/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c667258519f4d6d7",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Waste air temperature",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"device_class\": \"temperature\",\n    \"state_class\": \"measurement\",\n    \"name\": \"Waste air temperature\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Waste air temperature\",\n    \"value_template\": \" {{value_json['Waste air temperature']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:home-thermometer-outline\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 400,
+        "wires": [
+            [
+                "cf875bc5849195f4"
+            ]
+        ]
+    },
+    {
+        "id": "cf875bc5849195f4",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/Wasteairtemperature/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 960,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "e2ef619d441eae98",
+        "type": "comment",
+        "z": "e64ba185b16788ff",
+        "name": "MQTT configuration triggers",
+        "info": "",
+        "x": 200,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "f5973c4fdaa56baf",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Current supply fan speed RPM",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Current supply fan speed\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"RPM\",\n    \"unique_id\": \"Current supply fan speed RPM\",\n    \"value_template\": \" {{value_json['Current supply fan speed RPM']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan\"\n}",
+        "output": "json",
+        "x": 610,
+        "y": 600,
+        "wires": [
+            [
+                "aae45bd7df4f9efa"
+            ]
+        ]
+    },
+    {
+        "id": "2a567ad6f8a11e22",
+        "type": "comment",
+        "z": "e64ba185b16788ff",
+        "name": "Sensors fanspeed",
+        "info": "",
+        "x": 570,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "aae45bd7df4f9efa",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/CurrentsupplyfanspeedRPM/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1000,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "bb96dd63d64f29a0",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Current exhaust fan speed RPM",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Current exhaust fan speed\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"RPM\",\n    \"unique_id\": \"Current exhaust fan speed RPM\",\n    \"value_template\": \" {{value_json['Current exhaust fan speed RPM']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan\"\n}",
+        "output": "json",
+        "x": 610,
+        "y": 640,
+        "wires": [
+            [
+                "6a5c453b8ba6e389"
+            ]
+        ]
+    },
+    {
+        "id": "6a5c453b8ba6e389",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/CurrentexhaustfanspeedRPM/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 1010,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "e508f597fa0b0199",
+        "type": "comment",
+        "z": "e64ba185b16788ff",
+        "name": "Control buttons",
+        "info": "",
+        "x": 560,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "dad12d477c7f9754",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Boost",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n\n    \"command_topic\": \"ftx/Boostmode/set\",\n    \"payload_off\": false,\n    \"payload_on\": true,\n    \"state_topic\": \"ftx/Boostmode/state\",\n    \"name\": \"Boost mode\",\n    \"unique_id\": \"Boost mode\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan-plus\"\n}",
+        "output": "json",
+        "x": 530,
+        "y": 820,
+        "wires": [
+            [
+                "2ebfe2f236c93438"
+            ]
+        ]
+    },
+    {
+        "id": "2ebfe2f236c93438",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/switch/ftx/Boostmode/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 950,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b41b26fc3fda6fd4",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Electric heater",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n\n    \"command_topic\": \"ftx/Electricheater/set\",\n    \"payload_off\": 0,\n    \"payload_on\": 255,\n    \"state_topic\": \"ftx/Electricheater/state\",\n    \"name\": \"Electric heater\",\n    \"unique_id\": \"Electric heater\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:heat-wave\"\n}",
+        "output": "json",
+        "x": 560,
+        "y": 880,
+        "wires": [
+            [
+                "ef95fe19c16a269f"
+            ]
+        ]
+    },
+    {
+        "id": "ef95fe19c16a269f",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/switch/ftx/Electricheater/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 950,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "2ed59d9d6343849f",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Away mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n\n    \"command_topic\": \"ftx/Awaymode/set\",\n    \"payload_off\": false,\n    \"payload_on\": true,\n    \"state_topic\": \"ftx/Awaymode/state\",\n    \"name\": \"Away mode\",\n    \"unique_id\": \"Away mode\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan-minus\"\n}",
+        "output": "json",
+        "x": 550,
+        "y": 940,
+        "wires": [
+            [
+                "1895a8486106cc94"
+            ]
+        ]
+    },
+    {
+        "id": "1895a8486106cc94",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/switch/ftx/Awaymode/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 950,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "692c90143274aedb",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Overpressure mode",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n\n    \"command_topic\": \"ftx/Overpressuremode/set\",\n    \"payload_off\": false,\n    \"payload_on\": true,\n    \"state_topic\": \"ftx/Overpressuremode/state\",\n    \"name\": \"Overpressure mode\",\n    \"unique_id\": \"Overpressure mode\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fire\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 1000,
+        "wires": [
+            [
+                "83819c286fe44d71"
+            ]
+        ]
+    },
+    {
+        "id": "83819c286fe44d71",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/switch/ftx/Overpressuremode/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 970,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "020e0e22534a83b3",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Summer night cooling",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n\n    \"command_topic\": \"ftx/SNC/set\",\n    \"payload_off\": 0,\n    \"payload_on\": 255,\n    \"state_topic\": \"ftx/SNC/state\",\n    \"name\": \"Summer night cooling\",\n    \"unique_id\": \"Summer night cooling\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:thermometer-minus\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 1080,
+        "wires": [
+            [
+                "e3c655fa19c7077b"
+            ]
+        ]
+    },
+    {
+        "id": "e3c655fa19c7077b",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/switch/ftx/SNC/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 930,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "f13ebce745d17944",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Current heating power",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Current heating power\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"%\",\n    \"unique_id\": \"Current heating power\",\n    \"value_template\": \" {{value_json['Current heating power']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:heating-coil\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 680,
+        "wires": [
+            [
+                "c64878cd77a8985d"
+            ]
+        ]
+    },
+    {
+        "id": "c64878cd77a8985d",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/sensor/ftx/Currentheatingpower/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 980,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "a6221bc2d96ac1bd",
+        "type": "switch",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "online",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 290,
+        "y": 120,
+        "wires": [
+            [
+                "26de88e20150c590",
+                "686bdc70be426ce6",
+                "2684a1d98bed3129",
+                "c667258519f4d6d7",
+                "f5973c4fdaa56baf",
+                "bb96dd63d64f29a0",
+                "f13ebce745d17944",
+                "dad12d477c7f9754",
+                "b41b26fc3fda6fd4",
+                "2ed59d9d6343849f",
+                "692c90143274aedb",
+                "020e0e22534a83b3",
+                "d0a0328d5c71144e"
+            ]
+        ]
+    },
+    {
+        "id": "0ba990847dd61bb3",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "d": true,
+        "name": "Climate device",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\n            \"ftx_data_test\"\n        ],\n        \"name\": \"FTX data test\",\n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Temperature setpoint 7\",\n    \"state_topic\": \"ftx/Temperaturesetpoint/state\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Temperature setpoint\",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan\",\n    \"temperature_command_topic\": \"ftx/Temperaturesetpoint/set\",\n    \"temperature_state_topic\": \"ftx/data\",\n    \"temperature_state_template\": \"{{ value_json['Temperature setpoint'] }}\",\n    \"temperature_unut\": \"C\",\n    \"temp_step\": 1,\n    \"action_template\": \"heating\",\n    \"modes\": [\n        \"fan_only\",\n        \"auto\",\n        \"off\",\n        \"heat\",\n        \"cool\"\n    ],\n    \"mode_state_topic\": \"ftx/data\",\n    \"mode_state_template\": \"fan_only\",\n    \"max_temp\": 30,\n    \"min_temp\": 15,\n    \"current_temperature_topic\": \"ftx/data\",\n    \"current_temperature_template\": \"{{ value_json['Supply air temperature'] }}\",\n    \"fan_mode_state_topic \": \"ftx/data\",\n    \"fan_mode_command_topic\": \"ftx/fan_mode/set\",\n    \"fan_mode_state_template\": \"medium\",\n    \"fan_modes\": [\n        \"low\",\n        \"medium\",\n        \"high\"\n    ]\n}",
+        "output": "json",
+        "x": 560,
+        "y": 1280,
+        "wires": [
+            [
+                "c43eecb664909be5"
+            ]
+        ]
+    },
+    {
+        "id": "c43eecb664909be5",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/climate/ftx/Temperaturesetpoint/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 960,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d0a0328d5c71144e",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "name": "Temperature setpoint",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\n            \"ftx_heru\"\n        ],\n        \"name\": \"FTX data\",\n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"name\": \"Temperature setpoint\",\n    \"unique_id\": \"Temperature setpoint\",\n    \"platform\": \"mqtt\",\n    \"command_topic\": \"ftx/Temperaturesetpoint/set\",\n    \"state_topic\": \"ftx/Temperaturesetpoint/state\",\n    \"value_template\": \" {{value_json.value}} \",\n    \"device_class\": \"temperature\",\n    \"min\": 15,\n    \"max\": 25,\n    \"mode\": \"slider\",\n    \"step\": 1,\n    \"unit_of_measurement\": \"°C\"\n}",
+        "output": "json",
+        "x": 580,
+        "y": 1160,
+        "wires": [
+            [
+                "62c2a6e72227720a"
+            ]
+        ]
+    },
+    {
+        "id": "62c2a6e72227720a",
+        "type": "mqtt out",
+        "z": "e64ba185b16788ff",
+        "name": "",
+        "topic": "homeassistant/number/ftx/Temperaturesetpoint/config",
+        "qos": "0",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "26516bc9a19c6fd2",
+        "x": 980,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "26516bc9a19c6fd2",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "${MQTT_Server}",
+        "port": "${MQTT_Server_Port}",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "3",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+
+]
