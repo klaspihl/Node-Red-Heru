@@ -55,4 +55,4 @@ Flow
 ![flow](doc/Flow_modbus1.png)
 
 MQTT auto discovery
-![mqttdiscovery](doc/Flow_mqttdiscovery1.png)
+![mqttdiscovery](doc/Flow_MQTTDiscovery1.png)
