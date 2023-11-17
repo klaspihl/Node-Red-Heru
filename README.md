@@ -51,8 +51,10 @@ REST endpoint to read [FTX status](doc/Endpoint_json1.json)
 
 ## Node-red
 
-Flow
+### Flow
+
 ![flow](doc/Flow_modbus1.png)
 
-MQTT auto discovery
+### MQTT auto discovery
+
 ![mqttdiscovery](doc/Flow_MQTTDiscovery1.png)
