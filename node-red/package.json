@@ -4,9 +4,8 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
-        "node-red-contrib-modbus": "~5.26.0",
-        "node-red": "^3.1.0",
-        "node-red-dashboard" : "^2.16.3"
+        "node-red-contrib-modbus": "~5.31.0",
+        "node-red": "^3.1.9"
     },
     "scripts": {
         "start": "node $NODE_OPTIONS node_modules/node-red/red.js $FLOWS",
