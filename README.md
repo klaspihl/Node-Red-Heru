@@ -17,7 +17,6 @@ docker run -it --rm -p 1880:1880 --name testenv /
 
 ### Docker-compose
 ```yaml
-version: '3'
 services:
   nodered:
     image: klaspihl/node-red-heru:latest
