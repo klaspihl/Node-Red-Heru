@@ -20,7 +20,7 @@ jobs:
       attestations: write
       id-token: write
     env:
-      REPOSITORY: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.inputs.DOCKERHUB_REPO }}
+      REPOSITORY: ${{ secrets.DOCKERHUB_REPO }}
       PLATFORMS: linux/amd64,linux/arm64 ,linux/arm/v7
 
     steps:
