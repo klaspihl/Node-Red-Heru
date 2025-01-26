@@ -12,7 +12,7 @@ Creates Home assistant sensors, switches and numbers to control FTX by Modbus us
 ```cmd
 docker run -it --rm -p 1880:1880 --name testenv /
 -e MQTTServer=mqtt.dev.local -e mqttserverport=1883  /
-  --device /dev/tty10:/dev/ttySC0 klaspihl/node-red-modbus
+  --device /dev/tty10:/dev/ttySC0 klaspihl/node-red-heru
 ```
 
 ### Docker-compose
