@@ -63,9 +63,9 @@ jobs:
         id: push
         uses: docker/build-push-action@v6
         with:
-          context: .
+          context: "{{defaultContext}}:node-red"
           platforms: ${{ env.PLATFORMS }}
-          file: Dockerfile
+          file: dockerfile
           push: true
           tags: |
             ${{ env.REPOSITORY }}:${{ env.version }}
