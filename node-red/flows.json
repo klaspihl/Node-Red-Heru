@@ -141,8 +141,7 @@
         "wires": [
             [],
             [
-                "ebdb45f9e65907a6",
-                "b74044bc008903c1"
+                "ebdb45f9e65907a6"
             ]
         ]
     },
@@ -340,7 +339,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{\n    \"Outdoor temperature\":  {{ payload.data.1 }},\n    \"Supply air temperature\": {{ payload.data.2 }},\n    \"Exhaust air temperature\": {{ payload.data.3 }},\n    \"Waste air temperature\": {{ payload.data.4 }},\n    \"Water temperature\": {{ payload.data.5 }},\n    \"Heat Recovery Wheel temperature\": {{ payload.data.6 }},\n    \"Room temperature\": {{ payload.data.7 }},\n    \"Supply pressure x0.1Pa Valid only if pressure sensor connected\": {{ payload.data.11 }},\n    \"Exhaust pressure x0.1Pa Valid only if pressure sensor connected\": {{ payload.data.12 }},\n    \"Relative humidity x0.1% Valid only if RH sensor connected\": {{ payload.data.13 }},\n    \"Carbon dioxide PPM Valid only if CO2 sensor conneced\": {{ payload.data.14 }},\n    \"Filter days left\": {{ payload.data.19 }},\n    \"Current weektimer program\": {{ payload.data.20 }},\n    \"Current fan speed\": {{ payload.data.21 }},\n    \"Current supply fan step\": {{ payload.data.22 }},\n    \"Current exhaust fan step\": {{ payload.data.23 }},\n    \"Current supply fan power %\": {{ payload.data.24 }},\n    \"Current exhaust fan power %\": {{ payload.data.25 }},\n    \"Current supply fan speed RPM\": {{ payload.data.26 }},\n    \"Current exhaust fan speed RPM\": {{ payload.data.27 }},\n    \"Current heating power\": {{ payload.data.28 }},\n    \"Current heat/cold recovery power\": {{ payload.data.29 }},\n    \"Current cooling power\": {{ payload.data.30 }},\n    \"Supply fan control voltage\": {{ payload.data.31 }},\n    \"Exhaust fan control voltage\": {{ payload.data.32 }},\n    \"outdoor\": {{ payload.data.1 }}\n }",
+        "template": "{\n    \"Outdoor temperature\":  {{ payload.data.1 }},\n    \"Supply air temperature\": {{ payload.data.2 }},\n    \"Exhaust air temperature\": {{ payload.data.3 }},\n    \"Waste air temperature\": {{ payload.data.4 }},\n    \"Water temperature\": {{ payload.data.5 }},\n    \"Heat Recovery Wheel temperature\": {{ payload.data.6 }},\n    \"Room temperature\": {{ payload.data.7 }},\n    \"Supply pressure x0.1Pa Valid only if pressure sensor connected.\": {{ payload.data.11 }},\n    \"Exhaust pressure x0.1Pa Valid only if pressure sensor connected.\": {{ payload.data.12 }},\n    \"Relative humidity x0.1% Valid only if RH sensor connected.\": {{ payload.data.13 }},\n    \"Carbon dioxide PPM Valid only if CO2 sensor conneced.\": {{ payload.data.14 }},\n    \"Filter days left Number of days to filter change.\": {{ payload.data.19 }},\n    \"Current weektimer program\": {{ payload.data.20 }},\n    \"Current fan speed\": {{ payload.data.21 }},\n    \"Current supply fan step\": {{ payload.data.22 }},\n    \"Current exhaust fan step\": {{ payload.data.23 }},\n    \"Current supply fan power %\": {{ payload.data.24 }},\n    \"Current exhaust fan power %\": {{ payload.data.25 }},\n    \"Current supply fan speed RPM\": {{ payload.data.26 }},\n    \"Current exhaust fan speed RPM\": {{ payload.data.27 }},\n    \"Current heating power\": {{ payload.data.28 }},\n    \"Current heat/cold recovery power\": {{ payload.data.29 }},\n    \"Current cooling power\": {{ payload.data.30 }},\n    \"Supply fan control voltage\": {{ payload.data.31 }},\n    \"Exhaust fan control voltage\": {{ payload.data.32 }},\n    \"outdoor\": {{ payload.data.1 }}\n }",
         "output": "json",
         "x": 620,
         "y": 300,
@@ -354,8 +353,7 @@
         "id": "ebdb45f9e65907a6",
         "type": "change",
         "z": "97e478c1a0ed5bfc",
-        "d": true,
-        "name": "Scale temerature old",
+        "name": "Scale temerature",
         "rules": [
             {
                 "t": "set",
@@ -412,10 +410,12 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 200,
+        "x": 390,
+        "y": 240,
         "wires": [
-            []
+            [
+                "f826828d7eecd1e1"
+            ]
         ]
     },
     {
@@ -479,7 +479,7 @@
         "unitid": "",
         "dataType": "HoldingRegister",
         "adr": "0",
-        "quantity": "51",
+        "quantity": "28",
         "rate": "20",
         "rateUnit": "s",
         "delayOnStart": false,
@@ -538,10 +538,11 @@
         "y": 1000,
         "wires": [
             [
-                "dac5c641c09ce0c6",
-                "a3759154ce6978fd"
+                "dac5c641c09ce0c6"
             ],
-            []
+            [
+                "a3759154ce6978fd"
+            ]
         ]
     },
     {
@@ -648,7 +649,7 @@
         "fieldType": "msg",
         "format": "handlebars",
         "syntax": "mustache",
-        "template": "{\n    \"User fan speed\": {{ payload.data.0 }},\n    \"Temperature setpoint\": {{ payload.data.1 }},\n    \"Supply fan speed EC\": {{ payload.data.2 }},\n    \"Exhaust fan speed EC\": {{ payload.data.3 }},\n    \"Min exhaust fan speed EC\": {{ payload.data.4 }},\n    \"Mod exhaust fan speed EC\": {{ payload.data.5 }},\n    \"Max exhaust fan speed EC\": {{ payload.data.6 }},\n    \"Min supply temperature\": {{ payload.data.9 }},\n    \"Max supply temperature\": {{ payload.data.10 }},\n    \"Regulation mode\": {{ payload.data.11 }},\n    \"SNC indoor-outdoor diff. Limit\": {{ payload.data.12 }},\n    \"SNC exhaust low limit\": {{ payload.data.13 }},\n    \"SNC exhaust high limit\": {{ payload.data.14 }},\n    \"SNC enable\": {{ payload.data.15 }},\n    \"Freeze protection limit\": {{ payload.data.16 }},\n    \"CO2 limit\": {{ payload.data.19 }},\n    \"CO2 interval\": {{ payload.data.20 }},\n    \"CO2 ramp\": {{ payload.data.21 }},\n    \"RH limit\": {{ payload.data.22 }},\n    \"RH interval\": {{ payload.data.23 }},\n    \"RH ramp\": {{ payload.data.24 }},\n    \"Boost speed\": {{ payload.data.25 }},\n    \"Boost duration\": {{ payload.data.26 }},\n    \"Overpressure duration\": {{ payload.data.27 }},\n    \"Electric heater\": {{ payload.data.50 }}\n}",
+        "template": "{\n    \"User fan speed\": {{ payload.data.0 }},\n    \"Temperature setpoint\": {{ payload.data.1 }},\n    \"Supply fan speed EC\": {{ payload.data.2 }},\n    \"Exhaust fan speed EC\": {{ payload.data.3 }},\n    \"Min exhaust fan speed EC\": {{ payload.data.4 }},\n    \"Mod exhaust fan speed EC\": {{ payload.data.5 }},\n    \"Max exhaust fan speed EC\": {{ payload.data.6 }},\n    \"Min supply temperature\": {{ payload.data.9 }},\n    \"Max supply temperature\": {{ payload.data.10 }},\n    \"Regulation mode\": {{ payload.data.11 }},\n    \"SNC indoor-outdoor diff. Limit\": {{ payload.data.12 }},\n    \"SNC exhaust low limit\": {{ payload.data.13 }},\n    \"SNC exhaust high limit\": {{ payload.data.14 }},\n    \"SNC enable\": {{ payload.data.15 }},\n    \"Freeze protection limit\": {{ payload.data.16 }},\n    \"CO2 limit\": {{ payload.data.19 }},\n    \"CO2 interval\": {{ payload.data.20 }},\n    \"CO2 ramp\": {{ payload.data.21 }},\n    \"RH limit\": {{ payload.data.22 }},\n    \"RH interval\": {{ payload.data.23 }},\n    \"RH ramp\": {{ payload.data.24 }},\n    \"Boost speed\": {{ payload.data.25 }},\n    \"Boost duration\": {{ payload.data.26 }},\n    \"Overpressure duration\": {{ payload.data.27 }}\n}",
         "output": "json",
         "x": 620,
         "y": 480,
@@ -1348,10 +1349,11 @@
         "y": 2180,
         "wires": [
             [
-                "d1ceae8269d6346a",
-                "1b9f2855a4a5d1ac"
+                "d1ceae8269d6346a"
             ],
-            []
+            [
+                "1b9f2855a4a5d1ac"
+            ]
         ]
     },
     {
@@ -1482,13 +1484,13 @@
         "name": "alarm registers",
         "active": true,
         "tosidebar": true,
-        "console": true,
+        "console": false,
         "tostatus": false,
         "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 590,
+        "x": 580,
         "y": 680,
         "wires": []
     },
@@ -1506,8 +1508,8 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1540,
-        "y": 1260,
+        "x": 1140,
+        "y": 1240,
         "wires": []
     },
     {
@@ -1524,7 +1526,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1540,
+        "x": 1140,
         "y": 2180,
         "wires": []
     },
@@ -1542,7 +1544,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1530,
+        "x": 1130,
         "y": 1700,
         "wires": []
     },
@@ -1560,7 +1562,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1560,
+        "x": 1160,
         "y": 1440,
         "wires": []
     },
@@ -1578,7 +1580,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1490,
+        "x": 1110,
         "y": 1000,
         "wires": []
     },
@@ -1606,7 +1608,7 @@
         "type": "rbe",
         "z": "97e478c1a0ed5bfc",
         "name": "",
-        "func": "rbe",
+        "func": "rbei",
         "gap": "",
         "start": "",
         "inout": "out",
@@ -1645,7 +1647,7 @@
         "type": "rbe",
         "z": "97e478c1a0ed5bfc",
         "name": "",
-        "func": "rbe",
+        "func": "rbei",
         "gap": "",
         "start": "",
         "inout": "out",
@@ -1684,7 +1686,7 @@
         "type": "rbe",
         "z": "97e478c1a0ed5bfc",
         "name": "",
-        "func": "rbe",
+        "func": "rbei",
         "gap": "",
         "start": "",
         "inout": "out",
@@ -1721,8 +1723,8 @@
         "round": true,
         "property": "payload.data[28]",
         "name": "Scale heat power",
-        "x": 390,
-        "y": 300,
+        "x": 610,
+        "y": 240,
         "wires": [
             [
                 "496dea066c83ef60"
@@ -1765,7 +1767,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 1560,
+        "x": 1160,
         "y": 1940,
         "wires": []
     },
@@ -1793,7 +1795,7 @@
         "type": "rbe",
         "z": "97e478c1a0ed5bfc",
         "name": "",
-        "func": "rbe",
+        "func": "rbei",
         "gap": "",
         "start": "",
         "inout": "out",
@@ -1809,413 +1811,23 @@
         ]
     },
     {
-        "id": "b74044bc008903c1",
-        "type": "change",
+        "id": "f826828d7eecd1e1",
+        "type": "function",
         "z": "97e478c1a0ed5bfc",
-        "name": "Scale temerature",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload.data[1]",
-                "pt": "msg",
-                "to": "(payload.data[1] > 32765 ? (payload.data[1] - 65536) : payload.data[1])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[2]",
-                "pt": "msg",
-                "to": "(payload.data[2] > 32765 ? (payload.data[2] - 65536) : payload.data[2])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[3]",
-                "pt": "msg",
-                "to": "(payload.data[3] > 32765 ? (payload.data[3] - 65536) : payload.data[3])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[4]",
-                "pt": "msg",
-                "to": "(payload.data[4] > 32765 ? (payload.data[4] - 65536) : payload.data[4])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[5]",
-                "pt": "msg",
-                "to": "(payload.data[5] > 32765 ? (payload.data[5] - 65536) : payload.data[5])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[6]",
-                "pt": "msg",
-                "to": "(payload.data[6] > 32765 ? (payload.data[6] - 65536) : payload.data[6])/10",
-                "tot": "jsonata"
-            },
-            {
-                "t": "set",
-                "p": "payload.data[7]",
-                "pt": "msg",
-                "to": "(payload.data[7] > 32765 ? (payload.data[7] - 65536) : payload.data[7])/10",
-                "tot": "jsonata"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 410,
-        "y": 240,
+        "name": "Convert to signed integer",
+        "func": "for (let i = 0; i < msg.payload.data.length; i++) {\n    let value = msg.payload.data[i];\n    if (value > 32767) {\n        msg.payload.data[i] = value - 65536;\n    }\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 180,
         "wires": [
             [
                 "3c7ca75329ee0968"
             ]
         ]
-    },
-    {
-        "id": "53c372c920db53a8",
-        "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
-        "name": "",
-        "topic": "homeassistant/status",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "26516bc9a19c6fd2",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 620,
-        "y": 2380,
-        "wires": [
-            [
-                "7ce7abd7f99e8c25"
-            ]
-        ]
-    },
-    {
-        "id": "7ce7abd7f99e8c25",
-        "type": "switch",
-        "z": "97e478c1a0ed5bfc",
-        "name": "",
-        "property": "payload",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "online",
-                "vt": "str"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 810,
-        "y": 2380,
-        "wires": [
-            [
-                "acf1d3798693a4c4",
-                "c76d30eaffa23a75",
-                "e38333e70b0c3539",
-                "e4933b9bc19aad6b",
-                "dd0a46621624e65f",
-                "998d41271b1dac2a"
-            ]
-        ]
-    },
-    {
-        "id": "80a190469db2c42a",
-        "type": "inject",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Trigger sensor update",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": "22",
-        "topic": "",
-        "payload": "online",
-        "payloadType": "str",
-        "x": 620,
-        "y": 2440,
-        "wires": [
-            [
-                "7ce7abd7f99e8c25"
-            ]
-        ]
-    },
-    {
-        "id": "acf1d3798693a4c4",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Away mode",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['Away mode']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 1660,
-        "wires": [
-            [
-                "3c4865b3e7c74952"
-            ]
-        ]
-    },
-    {
-        "id": "c76d30eaffa23a75",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Overpressure mode",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['Overpressure mode']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1020,
-        "y": 1400,
-        "wires": [
-            [
-                "428e816d77093863"
-            ]
-        ]
-    },
-    {
-        "id": "e38333e70b0c3539",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Boost mode",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['Boost mode']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 1220,
-        "wires": [
-            [
-                "c87a392bf0212535"
-            ]
-        ]
-    },
-    {
-        "id": "e4933b9bc19aad6b",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Temperature setpoint",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['Temperature setpoint']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1020,
-        "y": 1900,
-        "wires": [
-            [
-                "faa5a1a309f56e2c"
-            ]
-        ]
-    },
-    {
-        "id": "dd0a46621624e65f",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "SNC enable",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['SNC enable']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 990,
-        "y": 960,
-        "wires": [
-            [
-                "81f6f5046470d6f3"
-            ]
-        ]
-    },
-    {
-        "id": "998d41271b1dac2a",
-        "type": "change",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Electric heater",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ftxdata['Electric heater']",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1000,
-        "y": 2120,
-        "wires": [
-            [
-                "7166b7dfe05d08fd"
-            ]
-        ]
-    },
-    {
-        "id": "7166b7dfe05d08fd",
-        "type": "range",
-        "z": "97e478c1a0ed5bfc",
-        "minin": "0",
-        "maxin": "1",
-        "minout": "0",
-        "maxout": "255",
-        "action": "scale",
-        "round": false,
-        "property": "payload",
-        "name": "",
-        "x": 1180,
-        "y": 2120,
-        "wires": [
-            [
-                "5150e3284656be4c"
-            ]
-        ]
-    },
-    {
-        "id": "81f6f5046470d6f3",
-        "type": "range",
-        "z": "97e478c1a0ed5bfc",
-        "minin": "0",
-        "maxin": "1",
-        "minout": "0",
-        "maxout": "255",
-        "action": "scale",
-        "round": false,
-        "property": "payload",
-        "name": "",
-        "x": 1160,
-        "y": 960,
-        "wires": [
-            [
-                "68707e7d8d2fe16d"
-            ]
-        ]
-    },
-    {
-        "id": "5150e3284656be4c",
-        "type": "template",
-        "z": "97e478c1a0ed5bfc",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\n    \"value\": {{ payload }}\n}",
-        "output": "str",
-        "x": 1360,
-        "y": 2120,
-        "wires": [
-            [
-                "d1ceae8269d6346a"
-            ]
-        ]
-    },
-    {
-        "id": "68707e7d8d2fe16d",
-        "type": "template",
-        "z": "97e478c1a0ed5bfc",
-        "name": "",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "{\n    \"value\": {{ payload }}\n}",
-        "output": "str",
-        "x": 1340,
-        "y": 960,
-        "wires": [
-            [
-                "dac5c641c09ce0c6"
-            ]
-        ]
-    },
-    {
-        "id": "f3ec38d342ae917e",
-        "type": "comment",
-        "z": "97e478c1a0ed5bfc",
-        "name": "Send mqtt topic",
-        "info": "",
-        "x": 1520,
-        "y": 940,
-        "wires": []
-    },
-    {
-        "id": "1454b56fe9e089f4",
-        "type": "comment",
-        "z": "97e478c1a0ed5bfc",
-        "name": "when hass is initiated values is updated",
-        "info": "",
-        "x": 1070,
-        "y": 900,
-        "wires": []
     },
     {
         "id": "26de88e20150c590",
@@ -2784,8 +2396,27 @@
                 "2ed59d9d6343849f",
                 "692c90143274aedb",
                 "020e0e22534a83b3",
-                "d0a0328d5c71144e",
-                "0445e56bc126a147"
+                "d0a0328d5c71144e"
+            ]
+        ]
+    },
+    {
+        "id": "0ba990847dd61bb3",
+        "type": "template",
+        "z": "e64ba185b16788ff",
+        "d": true,
+        "name": "Climate device",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "plain",
+        "template": "{\n    \"device\": {\n        \"identifiers\": [\n            \"ftx_data_test\"\n        ],\n        \"name\": \"FTX data test\",\n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Temperature setpoint 7\",\n    \"state_topic\": \"ftx/Temperaturesetpoint/state\",\n    \"unit_of_measurement\": \"°C\",\n    \"unique_id\": \"Temperature setpoint\",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:fan\",\n    \"temperature_command_topic\": \"ftx/Temperaturesetpoint/set\",\n    \"temperature_state_topic\": \"ftx/data\",\n    \"temperature_state_template\": \"{{ value_json['Temperature setpoint'] }}\",\n    \"temperature_unut\": \"C\",\n    \"temp_step\": 1,\n    \"action_template\": \"heating\",\n    \"modes\": [\n        \"fan_only\",\n        \"auto\",\n        \"off\",\n        \"heat\",\n        \"cool\"\n    ],\n    \"mode_state_topic\": \"ftx/data\",\n    \"mode_state_template\": \"fan_only\",\n    \"max_temp\": 30,\n    \"min_temp\": 15,\n    \"current_temperature_topic\": \"ftx/data\",\n    \"current_temperature_template\": \"{{ value_json['Supply air temperature'] }}\",\n    \"fan_mode_state_topic \": \"ftx/data\",\n    \"fan_mode_command_topic\": \"ftx/fan_mode/set\",\n    \"fan_mode_state_template\": \"medium\",\n    \"fan_modes\": [\n        \"low\",\n        \"medium\",\n        \"high\"\n    ]\n}",
+        "output": "json",
+        "x": 560,
+        "y": 1280,
+        "wires": [
+            [
+                "c43eecb664909be5"
             ]
         ]
     },
@@ -2794,7 +2425,7 @@
         "type": "mqtt out",
         "z": "e64ba185b16788ff",
         "name": "",
-        "topic": "homeassistant/sensor/ftx/FilterAge/config",
+        "topic": "homeassistant/climate/ftx/Temperaturesetpoint/config",
         "qos": "0",
         "retain": "false",
         "respTopic": "",
@@ -2803,7 +2434,7 @@
         "correl": "",
         "expiry": "",
         "broker": "26516bc9a19c6fd2",
-        "x": 920,
+        "x": 960,
         "y": 1280,
         "wires": []
     },
@@ -2843,24 +2474,5 @@
         "x": 980,
         "y": 1160,
         "wires": []
-    },
-    {
-        "id": "0445e56bc126a147",
-        "type": "template",
-        "z": "e64ba185b16788ff",
-        "name": "Filter days left",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "json",
-        "syntax": "plain",
-        "template": "{\n    \"device\": {\n        \"identifiers\": [\"ftx_heru\"],\n        \"name\": \"FTX data\", \n        \"manufacturer\": \"Östberg\",\n        \"model\": \"Node red flow\",\n        \"sw_version\": \"1.0\"\n    },\n    \"state_class\": \"measurement\",\n    \"name\": \"Filter days left\",\n    \"state_topic\": \"ftx/data\",\n    \"unit_of_measurement\": \"days\",\n    \"unique_id\": \"Filter days left\",\n    \"value_template\": \" {{value_json['Filter days left']}} \",\n    \"platform\": \"mqtt\",\n    \"icon\": \"mdi:update\"\n}",
-        "output": "json",
-        "x": 560,
-        "y": 1280,
-        "wires": [
-            [
-                "c43eecb664909be5"
-            ]
-        ]
     }
 ]
