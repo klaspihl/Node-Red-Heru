@@ -21,7 +21,7 @@ jobs:
       id-token: write
     env:
       REPOSITORY: ${{ secrets.DOCKERHUB_USERNAME }}/test
-      PLATFORMS: linux/amd64,linux/arm64 #,linux/arm/v7
+      PLATFORMS: linux/amd64 #,linux/arm64,linux/arm/v7
 
     steps:
       - name: Check out the repo
@@ -50,7 +50,7 @@ jobs:
         run: |
           if [ -z "${{ github.event.inputs.version }}" ]; then
             year=$(date +'%y')
-            month=$(date +'%m')
+            month=$(date +'%m' | sed 's/^0*//')
             number=$(git tag --list "${year}.${month}.*" | wc -l)
             number=$((number + 1))
             version="${year}.${month}.${number}"
