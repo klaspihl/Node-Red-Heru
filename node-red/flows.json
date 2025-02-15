@@ -1,6 +1,6 @@
 [
     {
-        "id": "97e478c1a0ed5bfc",
+        "id": "adb25c974a653c26",
         "type": "tab",
         "label": "FTX",
         "disabled": false,
@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "e64ba185b16788ff",
+        "id": "0b9ec44e8ca49f0e",
         "type": "tab",
         "label": "FTX MQTT Autodiscovery",
         "disabled": false,
@@ -72,9 +72,9 @@
         "sessionExpiry": ""
     },
     {
-        "id": "39234e7df7cf0f20",
+        "id": "971ffb77671fd508",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "read FTX",
         "active": false,
         "tosidebar": true,
@@ -89,9 +89,9 @@
         "wires": []
     },
     {
-        "id": "b276c0e6891fca0e",
+        "id": "535931066cd2c2a3",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Off",
         "props": [
             {
@@ -109,14 +109,14 @@
         "y": 1280,
         "wires": [
             [
-                "9309551bdf32637f"
+                "038e5d4103798191"
             ]
         ]
     },
     {
-        "id": "91bb900c1166f8a7",
+        "id": "56a7e8e31c3fe721",
         "type": "modbus-read",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "16 bit integer register R",
         "topic": "",
         "showStatusActivities": true,
@@ -141,14 +141,15 @@
         "wires": [
             [],
             [
-                "ebdb45f9e65907a6"
+                "04b010536f543ba1",
+                "8bd3e2a4a8137135"
             ]
         ]
     },
     {
-        "id": "e9752b9411eef0c0",
+        "id": "be481f842268d89d",
         "type": "modbus-read",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Discrete Output (1bit) R/W",
         "topic": "",
         "showStatusActivities": false,
@@ -173,17 +174,17 @@
         "wires": [
             [],
             [
-                "f44f8476dc1c822a",
-                "eb6c0c3b89be3cb3",
-                "8cf6a87851a0203d",
-                "bf3ee48f901b80c2"
+                "f1c16fd06103ccc5",
+                "5a35cb3b7a29bb3c",
+                "520ea1413f98b685",
+                "45980ed76d5023ce"
             ]
         ]
     },
     {
-        "id": "33dda9d941c6aa1f",
+        "id": "b728c44181278c17",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "On",
         "props": [
             {
@@ -201,14 +202,14 @@
         "y": 1240,
         "wires": [
             [
-                "9309551bdf32637f"
+                "038e5d4103798191"
             ]
         ]
     },
     {
-        "id": "9309551bdf32637f",
+        "id": "038e5d4103798191",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Boost",
         "showStatusActivities": true,
         "showErrors": false,
@@ -226,18 +227,18 @@
         "y": 1260,
         "wires": [
             [
-                "ab9670a11b72a431",
-                "c87a392bf0212535"
+                "546a255928a5103f",
+                "a38e570a317a5012"
             ],
             [
-                "ab9670a11b72a431"
+                "546a255928a5103f"
             ]
         ]
     },
     {
-        "id": "78cd2605bd542d1c",
+        "id": "45d8f74a550c4ef3",
         "type": "http in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Read FTX",
         "url": "/ftxdata",
         "method": "get",
@@ -247,23 +248,23 @@
         "y": 120,
         "wires": [
             [
-                "13147ccfb724ed2e"
+                "c904870ad48c7cd7"
             ]
         ]
     },
     {
-        "id": "608d92e9b146e801",
+        "id": "6294e1c1ab2643a7",
         "type": "http response",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "x": 1010,
         "y": 120,
         "wires": []
     },
     {
-        "id": "13147ccfb724ed2e",
+        "id": "c904870ad48c7cd7",
         "type": "change",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "rules": [
             {
@@ -283,14 +284,14 @@
         "y": 120,
         "wires": [
             [
-                "608d92e9b146e801"
+                "6294e1c1ab2643a7"
             ]
         ]
     },
     {
-        "id": "6d1f010b95f7f0ff",
+        "id": "4020311a95872668",
         "type": "change",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "rules": [
             {
@@ -313,9 +314,9 @@
         ]
     },
     {
-        "id": "bffca1b858bce343",
+        "id": "61fcfac1abd8b63b",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/data",
         "qos": "0",
@@ -331,9 +332,9 @@
         "wires": []
     },
     {
-        "id": "496dea066c83ef60",
+        "id": "3cb2363ce65cac88",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Parse modbus",
         "field": "payload",
         "fieldType": "msg",
@@ -345,14 +346,14 @@
         "y": 300,
         "wires": [
             [
-                "56da4e01592ab003"
+                "1bd2e8d3f920dc95"
             ]
         ]
     },
     {
-        "id": "ebdb45f9e65907a6",
+        "id": "d80f4f1d96401719",
         "type": "change",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Scale temerature",
         "rules": [
             {
@@ -410,18 +411,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 390,
+        "x": 410,
         "y": 240,
         "wires": [
             [
-                "f826828d7eecd1e1"
+                "d8f93bdedf7b0a2b"
             ]
         ]
     },
     {
-        "id": "f44f8476dc1c822a",
+        "id": "f1c16fd06103ccc5",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Parse modbus",
         "field": "payload",
         "fieldType": "msg",
@@ -433,14 +434,14 @@
         "y": 380,
         "wires": [
             [
-                "56da4e01592ab003"
+                "1bd2e8d3f920dc95"
             ]
         ]
     },
     {
-        "id": "56da4e01592ab003",
+        "id": "1bd2e8d3f920dc95",
         "type": "join",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "mode": "custom",
         "build": "merged",
@@ -461,15 +462,15 @@
         "y": 380,
         "wires": [
             [
-                "6d1f010b95f7f0ff",
-                "45637941efc94993"
+                "4020311a95872668",
+                "96d2cf840c63a040"
             ]
         ]
     },
     {
-        "id": "ea043be6b8d95ade",
+        "id": "8ee4b31779dffefc",
         "type": "modbus-read",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Red Holding register",
         "topic": "",
         "showStatusActivities": false,
@@ -494,16 +495,16 @@
         "wires": [
             [],
             [
-                "3dbb9215dabf1b0c",
-                "67c23dfd6fe7a7cd",
-                "aca0302a5898a705"
+                "4217c798d847d80c",
+                "fdb8603a1b1a61fb",
+                "79af09a9cf3c9c4f"
             ]
         ]
     },
     {
-        "id": "a3759154ce6978fd",
+        "id": "d96300f8a639681b",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Summer cooling",
         "active": false,
         "tosidebar": true,
@@ -518,9 +519,9 @@
         "wires": []
     },
     {
-        "id": "3927a9312e12a378",
+        "id": "a2d7aa7505d1c889",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Summer cooling on",
         "showStatusActivities": false,
         "showErrors": false,
@@ -538,17 +539,17 @@
         "y": 1000,
         "wires": [
             [
-                "dac5c641c09ce0c6"
+                "b146c7e55bda88e4"
             ],
             [
-                "a3759154ce6978fd"
+                "d96300f8a639681b"
             ]
         ]
     },
     {
-        "id": "ab9670a11b72a431",
+        "id": "546a255928a5103f",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Boost",
         "active": false,
         "tosidebar": true,
@@ -563,9 +564,9 @@
         "wires": []
     },
     {
-        "id": "df2c5bf7ebd4cc10",
+        "id": "acbbdd1cec7113df",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "On",
         "props": [
             {
@@ -587,14 +588,14 @@
         "y": 1000,
         "wires": [
             [
-                "3927a9312e12a378"
+                "a2d7aa7505d1c889"
             ]
         ]
     },
     {
-        "id": "a4505ec63c597284",
+        "id": "5921b62b904a7442",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Off",
         "props": [
             {
@@ -616,14 +617,14 @@
         "y": 1040,
         "wires": [
             [
-                "3927a9312e12a378"
+                "a2d7aa7505d1c889"
             ]
         ]
     },
     {
-        "id": "5f28c279c5b001f1",
+        "id": "c539ba15dc9617cd",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Read data to MQTT",
         "info": "",
         "x": 130,
@@ -631,9 +632,9 @@
         "wires": []
     },
     {
-        "id": "ebcaeca20b29cfe9",
+        "id": "c4bd8c4ea0354e24",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set SNC",
         "info": "",
         "x": 100,
@@ -641,9 +642,9 @@
         "wires": []
     },
     {
-        "id": "3dbb9215dabf1b0c",
+        "id": "4217c798d847d80c",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Parse modbus",
         "field": "payload",
         "fieldType": "msg",
@@ -655,14 +656,14 @@
         "y": 480,
         "wires": [
             [
-                "56da4e01592ab003"
+                "1bd2e8d3f920dc95"
             ]
         ]
     },
     {
-        "id": "725776f2f1f1e55e",
+        "id": "fe033b5deee540f6",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set boost",
         "info": "",
         "x": 100,
@@ -670,9 +671,9 @@
         "wires": []
     },
     {
-        "id": "6053311309d11acb",
+        "id": "581b349babcfb637",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Endpoint data",
         "info": "",
         "x": 110,
@@ -680,9 +681,9 @@
         "wires": []
     },
     {
-        "id": "741111d31b304521",
+        "id": "6e4b88c55c1c15b1",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Off",
         "props": [
             {
@@ -700,14 +701,14 @@
         "y": 1480,
         "wires": [
             [
-                "42132f148702f968"
+                "314236b4042da727"
             ]
         ]
     },
     {
-        "id": "91077bebbfb570c2",
+        "id": "f0613dfa99fe6222",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "On",
         "props": [
             {
@@ -725,14 +726,14 @@
         "y": 1440,
         "wires": [
             [
-                "42132f148702f968"
+                "314236b4042da727"
             ]
         ]
     },
     {
-        "id": "42132f148702f968",
+        "id": "314236b4042da727",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Overpressure ",
         "showStatusActivities": true,
         "showErrors": false,
@@ -750,18 +751,18 @@
         "y": 1440,
         "wires": [
             [
-                "a5b736d23743332c",
-                "428e816d77093863"
+                "c8a75741313dcd92",
+                "cfabad084be98803"
             ],
             [
-                "a5b736d23743332c"
+                "c8a75741313dcd92"
             ]
         ]
     },
     {
-        "id": "a5b736d23743332c",
+        "id": "c8a75741313dcd92",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Overpressure ",
         "active": false,
         "tosidebar": true,
@@ -776,9 +777,9 @@
         "wires": []
     },
     {
-        "id": "a92d87336ae88582",
+        "id": "cae9ce57935595c6",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set Overpressure ",
         "info": "",
         "x": 120,
@@ -786,9 +787,9 @@
         "wires": []
     },
     {
-        "id": "5be00c1e36316d51",
+        "id": "d4b718f87de66487",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Off",
         "props": [
             {
@@ -806,14 +807,14 @@
         "y": 1740,
         "wires": [
             [
-                "8de185f1d26f8fdb"
+                "3948a08cfcfaa06f"
             ]
         ]
     },
     {
-        "id": "176e9d30857b2de0",
+        "id": "45847269be0d9f5f",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "On",
         "props": [
             {
@@ -831,14 +832,14 @@
         "y": 1700,
         "wires": [
             [
-                "8de185f1d26f8fdb"
+                "3948a08cfcfaa06f"
             ]
         ]
     },
     {
-        "id": "8de185f1d26f8fdb",
+        "id": "3948a08cfcfaa06f",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Away",
         "showStatusActivities": true,
         "showErrors": false,
@@ -856,18 +857,18 @@
         "y": 1700,
         "wires": [
             [
-                "4d42736023d036af",
-                "3c4865b3e7c74952"
+                "5b984d487ffcd0c9",
+                "a4026f1c9705ba13"
             ],
             [
-                "4d42736023d036af"
+                "5b984d487ffcd0c9"
             ]
         ]
     },
     {
-        "id": "4d42736023d036af",
+        "id": "5b984d487ffcd0c9",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Away",
         "active": false,
         "tosidebar": true,
@@ -882,9 +883,9 @@
         "wires": []
     },
     {
-        "id": "3670bbe544c699de",
+        "id": "d2e9cc43111e4265",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set Away",
         "info": "",
         "x": 100,
@@ -892,9 +893,9 @@
         "wires": []
     },
     {
-        "id": "3430488e58eea1ab",
+        "id": "bbda0c54de1cc764",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "props": [
             {
@@ -916,14 +917,14 @@
         "y": 1200,
         "wires": [
             [
-                "f47a83b37b86afcd"
+                "a5607e3a4c95c0d3"
             ]
         ]
     },
     {
-        "id": "f47a83b37b86afcd",
+        "id": "a5607e3a4c95c0d3",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Boost timer",
         "showStatusActivities": false,
         "showErrors": false,
@@ -942,14 +943,14 @@
         "wires": [
             [],
             [
-                "ab9670a11b72a431"
+                "546a255928a5103f"
             ]
         ]
     },
     {
-        "id": "789141c5943da50c",
+        "id": "4488a7da61f7ce5d",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "props": [
             {
@@ -971,14 +972,14 @@
         "y": 1520,
         "wires": [
             [
-                "f8346e4c267731fd"
+                "6cd361d14c21be4c"
             ]
         ]
     },
     {
-        "id": "f8346e4c267731fd",
+        "id": "6cd361d14c21be4c",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Overpressure timer",
         "showStatusActivities": false,
         "showErrors": false,
@@ -997,14 +998,14 @@
         "wires": [
             [],
             [
-                "a5b736d23743332c"
+                "c8a75741313dcd92"
             ]
         ]
     },
     {
-        "id": "ec538c439473d006",
+        "id": "97aa81b79ec71517",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/SNC/set",
         "qos": "0",
@@ -1018,14 +1019,14 @@
         "y": 1080,
         "wires": [
             [
-                "3927a9312e12a378"
+                "a2d7aa7505d1c889"
             ]
         ]
     },
     {
-        "id": "9669863a29396bdf",
+        "id": "e0d9c35ee6ba571f",
         "type": "function",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "true/false",
         "func": "const enable = Boolean(msg.payload.sncenable);\nconst value = enable ? 255 : 0;\nreturn {\n    payload: value\n}",
         "outputs": 1,
@@ -1037,14 +1038,14 @@
         "y": 1080,
         "wires": [
             [
-                "3927a9312e12a378"
+                "a2d7aa7505d1c889"
             ]
         ]
     },
     {
-        "id": "029f39d8c8da7320",
+        "id": "4fa6ed5015fc7520",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Boostmode/set",
         "qos": "0",
@@ -1058,14 +1059,14 @@
         "y": 1320,
         "wires": [
             [
-                "0e77bc4a44cd03c7"
+                "f4f4b64f0793e0cb"
             ]
         ]
     },
     {
-        "id": "0e77bc4a44cd03c7",
+        "id": "f4f4b64f0793e0cb",
         "type": "function",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "true/false",
         "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
         "outputs": 1,
@@ -1077,14 +1078,14 @@
         "y": 1320,
         "wires": [
             [
-                "9309551bdf32637f"
+                "038e5d4103798191"
             ]
         ]
     },
     {
-        "id": "7b9e5b0eeee649b6",
+        "id": "ada5506a295a18ad",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Overpressuremode/set",
         "qos": "0",
@@ -1098,15 +1099,15 @@
         "y": 1560,
         "wires": [
             [
-                "89834e45d5d0af3e",
-                "a5b736d23743332c"
+                "b223c85d8b44950b",
+                "c8a75741313dcd92"
             ]
         ]
     },
     {
-        "id": "89834e45d5d0af3e",
+        "id": "b223c85d8b44950b",
         "type": "function",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "true/false",
         "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
         "outputs": 1,
@@ -1118,14 +1119,14 @@
         "y": 1560,
         "wires": [
             [
-                "42132f148702f968"
+                "314236b4042da727"
             ]
         ]
     },
     {
-        "id": "e443d4b0efdbf5db",
+        "id": "1e68eb3afc2c8608",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Awaymode/set",
         "qos": "0",
@@ -1139,14 +1140,14 @@
         "y": 1780,
         "wires": [
             [
-                "4f408f5c47159e3a"
+                "878d71ab838493ed"
             ]
         ]
     },
     {
-        "id": "4f408f5c47159e3a",
+        "id": "878d71ab838493ed",
         "type": "function",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "true/false",
         "func": "const enable = msg.payload.toLowerCase() === \"true\";\nreturn {\n    payload: enable\n}",
         "outputs": 1,
@@ -1158,14 +1159,14 @@
         "y": 1780,
         "wires": [
             [
-                "8de185f1d26f8fdb"
+                "3948a08cfcfaa06f"
             ]
         ]
     },
     {
-        "id": "9c1dc9e9d952b72d",
+        "id": "d0055222e1218ffd",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Temperature",
         "active": false,
         "tosidebar": true,
@@ -1180,9 +1181,9 @@
         "wires": []
     },
     {
-        "id": "0f22599be8a87daa",
+        "id": "b053465891b23332",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set temperature",
         "info": "",
         "x": 120,
@@ -1190,9 +1191,9 @@
         "wires": []
     },
     {
-        "id": "3ee7d75f551de75f",
+        "id": "b19862653c9bc4f4",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Manual temp 21",
         "props": [
             {
@@ -1214,14 +1215,14 @@
         "y": 2000,
         "wires": [
             [
-                "5f2f682a7889d0d2"
+                "677b1a0b2a635dfa"
             ]
         ]
     },
     {
-        "id": "5f2f682a7889d0d2",
+        "id": "677b1a0b2a635dfa",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Temperature setpoint",
         "showStatusActivities": false,
         "showErrors": false,
@@ -1239,17 +1240,17 @@
         "y": 1940,
         "wires": [
             [
-                "faa5a1a309f56e2c"
+                "d1514450ad5bd0bf"
             ],
             [
-                "9c1dc9e9d952b72d"
+                "d0055222e1218ffd"
             ]
         ]
     },
     {
-        "id": "67c23dfd6fe7a7cd",
+        "id": "fdb8603a1b1a61fb",
         "type": "change",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "rules": [
             {
@@ -1269,14 +1270,14 @@
         "y": 580,
         "wires": [
             [
-                "0cb26c22f3630235"
+                "c3f2aee7116058fb"
             ]
         ]
     },
     {
-        "id": "0cb26c22f3630235",
+        "id": "c3f2aee7116058fb",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "DateTimeObject",
         "field": "payload",
         "fieldType": "msg",
@@ -1291,9 +1292,9 @@
         ]
     },
     {
-        "id": "45637941efc94993",
+        "id": "96d2cf840c63a040",
         "type": "rbe",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -1306,15 +1307,15 @@
         "y": 380,
         "wires": [
             [
-                "bffca1b858bce343",
-                "39234e7df7cf0f20"
+                "61fcfac1abd8b63b",
+                "971ffb77671fd508"
             ]
         ]
     },
     {
-        "id": "1b9f2855a4a5d1ac",
+        "id": "d17724917bf1d85f",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Electric heater",
         "active": false,
         "tosidebar": true,
@@ -1329,9 +1330,9 @@
         "wires": []
     },
     {
-        "id": "6e95dd4ac7e14797",
+        "id": "a609070c6280c8e3",
         "type": "modbus-write",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Electric heater",
         "showStatusActivities": false,
         "showErrors": false,
@@ -1349,17 +1350,17 @@
         "y": 2180,
         "wires": [
             [
-                "d1ceae8269d6346a"
+                "94e1d06b2af9b026"
             ],
             [
-                "1b9f2855a4a5d1ac"
+                "d17724917bf1d85f"
             ]
         ]
     },
     {
-        "id": "1edfdc6fe79e00af",
+        "id": "545ffdd08ae821ee",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "On",
         "props": [
             {
@@ -1381,14 +1382,14 @@
         "y": 2180,
         "wires": [
             [
-                "6e95dd4ac7e14797"
+                "a609070c6280c8e3"
             ]
         ]
     },
     {
-        "id": "19483f5baa325d00",
+        "id": "b40b4fc8d619a57b",
         "type": "inject",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Off",
         "props": [
             {
@@ -1410,14 +1411,14 @@
         "y": 2220,
         "wires": [
             [
-                "6e95dd4ac7e14797"
+                "a609070c6280c8e3"
             ]
         ]
     },
     {
-        "id": "e218794e3f5b8db1",
+        "id": "4ee93f8bdfa99beb",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Set Electric heater",
         "info": "",
         "x": 130,
@@ -1425,9 +1426,9 @@
         "wires": []
     },
     {
-        "id": "d343ab3ea1d6c5de",
+        "id": "b6949606bb978a22",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Electricheater/set",
         "qos": "0",
@@ -1441,14 +1442,14 @@
         "y": 2260,
         "wires": [
             [
-                "6e95dd4ac7e14797"
+                "a609070c6280c8e3"
             ]
         ]
     },
     {
-        "id": "b2efcd4e3ba0d888",
+        "id": "4924455a6f679758",
         "type": "modbus-read",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Discrete Input (1bit) Read only",
         "topic": "",
         "showStatusActivities": false,
@@ -1472,15 +1473,15 @@
         "y": 680,
         "wires": [
             [
-                "c5c066e14570ba7b"
+                "ba10b7476b222e28"
             ],
             []
         ]
     },
     {
-        "id": "c5c066e14570ba7b",
+        "id": "ba10b7476b222e28",
         "type": "debug",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "alarm registers",
         "active": true,
         "tosidebar": true,
@@ -1495,9 +1496,9 @@
         "wires": []
     },
     {
-        "id": "c87a392bf0212535",
+        "id": "a38e570a317a5012",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Boostmode/state",
         "qos": "",
@@ -1513,9 +1514,9 @@
         "wires": []
     },
     {
-        "id": "d1ceae8269d6346a",
+        "id": "94e1d06b2af9b026",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Electricheater/state",
         "qos": "",
@@ -1531,9 +1532,9 @@
         "wires": []
     },
     {
-        "id": "3c4865b3e7c74952",
+        "id": "a4026f1c9705ba13",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Awaymode/state",
         "qos": "",
@@ -1549,9 +1550,9 @@
         "wires": []
     },
     {
-        "id": "428e816d77093863",
+        "id": "cfabad084be98803",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Overpressuremode/state",
         "qos": "",
@@ -1567,9 +1568,9 @@
         "wires": []
     },
     {
-        "id": "dac5c641c09ce0c6",
+        "id": "b146c7e55bda88e4",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/SNC/state",
         "qos": "",
@@ -1585,9 +1586,9 @@
         "wires": []
     },
     {
-        "id": "eb6c0c3b89be3cb3",
+        "id": "5a35cb3b7a29bb3c",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Overpressure mode",
         "field": "payload",
         "fieldType": "msg",
@@ -1599,14 +1600,14 @@
         "y": 800,
         "wires": [
             [
-                "2fb8b06c09c77149"
+                "2bb882bc0f5076cc"
             ]
         ]
     },
     {
-        "id": "2fb8b06c09c77149",
+        "id": "2bb882bc0f5076cc",
         "type": "rbe",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -1619,14 +1620,14 @@
         "y": 800,
         "wires": [
             [
-                "428e816d77093863"
+                "cfabad084be98803"
             ]
         ]
     },
     {
-        "id": "8cf6a87851a0203d",
+        "id": "520ea1413f98b685",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Boost mode",
         "field": "payload",
         "fieldType": "msg",
@@ -1638,14 +1639,14 @@
         "y": 840,
         "wires": [
             [
-                "e5fe65340517f8a8"
+                "72e4898e72cec9a1"
             ]
         ]
     },
     {
-        "id": "e5fe65340517f8a8",
+        "id": "72e4898e72cec9a1",
         "type": "rbe",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -1658,14 +1659,14 @@
         "y": 840,
         "wires": [
             [
-                "c87a392bf0212535"
+                "a38e570a317a5012"
             ]
         ]
     },
     {
-        "id": "bf3ee48f901b80c2",
+        "id": "45980ed76d5023ce",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Away mode",
         "field": "payload",
         "fieldType": "msg",
@@ -1677,14 +1678,14 @@
         "y": 880,
         "wires": [
             [
-                "a1ca6c8910764535"
+                "b4d9f3e23bf957f2"
             ]
         ]
     },
     {
-        "id": "a1ca6c8910764535",
+        "id": "b4d9f3e23bf957f2",
         "type": "rbe",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -1697,14 +1698,14 @@
         "y": 880,
         "wires": [
             [
-                "3c4865b3e7c74952"
+                "a4026f1c9705ba13"
             ]
         ]
     },
     {
-        "id": "31ead068c35a18eb",
+        "id": "9713ce2f426a5ef8",
         "type": "comment",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Update MQTT from FTX side",
         "info": "",
         "x": 540,
@@ -1712,9 +1713,9 @@
         "wires": []
     },
     {
-        "id": "3c7ca75329ee0968",
+        "id": "d8f93bdedf7b0a2b",
         "type": "range",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "minin": "0",
         "maxin": "255",
         "minout": "0",
@@ -1727,14 +1728,14 @@
         "y": 240,
         "wires": [
             [
-                "496dea066c83ef60"
+                "3cb2363ce65cac88"
             ]
         ]
     },
     {
-        "id": "284bd63250bac5dd",
+        "id": "091db26ac7331316",
         "type": "mqtt in",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Temperaturesetpoint/set",
         "qos": "2",
@@ -1748,15 +1749,15 @@
         "y": 1940,
         "wires": [
             [
-                "9c1dc9e9d952b72d",
-                "5f2f682a7889d0d2"
+                "d0055222e1218ffd",
+                "677b1a0b2a635dfa"
             ]
         ]
     },
     {
-        "id": "faa5a1a309f56e2c",
+        "id": "d1514450ad5bd0bf",
         "type": "mqtt out",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "topic": "ftx/Temperaturesetpoint/state",
         "qos": "",
@@ -1772,9 +1773,9 @@
         "wires": []
     },
     {
-        "id": "aca0302a5898a705",
+        "id": "79af09a9cf3c9c4f",
         "type": "template",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Temperature setpoint",
         "field": "payload",
         "fieldType": "msg",
@@ -1786,14 +1787,14 @@
         "y": 920,
         "wires": [
             [
-                "8b4d45013b93d1e9"
+                "a209afef58fd599f"
             ]
         ]
     },
     {
-        "id": "8b4d45013b93d1e9",
+        "id": "a209afef58fd599f",
         "type": "rbe",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "",
         "func": "rbei",
         "gap": "",
@@ -1806,33 +1807,51 @@
         "y": 920,
         "wires": [
             [
-                "faa5a1a309f56e2c"
+                "d1514450ad5bd0bf"
             ]
         ]
     },
     {
-        "id": "f826828d7eecd1e1",
+        "id": "8bd3e2a4a8137135",
         "type": "function",
-        "z": "97e478c1a0ed5bfc",
+        "z": "adb25c974a653c26",
         "name": "Convert to signed integer",
-        "func": "for (let i = 0; i < msg.payload.data.length; i++) {\n    let value = msg.payload.data[i];\n    if (value > 32767) {\n        msg.payload.data[i] = value - 65536;\n    }\n}\nreturn msg;",
+        "func": "for (let i = 0; i < msg.payload.data.length; i++) {\n    let value = msg.payload.data[i];\n    if (value > 32767) {\n        msg.payload.data[i] = value - 65534;\n    }\n}\nreturn msg;",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 510,
-        "y": 180,
+        "x": 330,
+        "y": 320,
         "wires": [
             [
-                "3c7ca75329ee0968"
+                "d80f4f1d96401719"
             ]
         ]
     },
     {
-        "id": "26de88e20150c590",
+        "id": "04b010536f543ba1",
+        "type": "debug",
+        "z": "adb25c974a653c26",
+        "name": "Modbus input",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b20115cd90061d1c",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Outdoor temperature",
         "field": "payload",
         "fieldType": "msg",
@@ -1844,14 +1863,14 @@
         "y": 180,
         "wires": [
             [
-                "1c29781b0f74940f"
+                "99d3198b15f121b0"
             ]
         ]
     },
     {
-        "id": "88843ae61100ac85",
+        "id": "df1b9a9f94fdf8f3",
         "type": "comment",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Sensors temperature",
         "info": "",
         "x": 580,
@@ -1859,9 +1878,9 @@
         "wires": []
     },
     {
-        "id": "1c29781b0f74940f",
+        "id": "99d3198b15f121b0",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/Outdoortemperature/config",
         "qos": "0",
@@ -1877,9 +1896,9 @@
         "wires": []
     },
     {
-        "id": "735689201b11d524",
+        "id": "ed1f197ca64d4cbe",
         "type": "mqtt in",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/status",
         "qos": "0",
@@ -1893,14 +1912,14 @@
         "y": 120,
         "wires": [
             [
-                "a6221bc2d96ac1bd"
+                "71211143a9609d72"
             ]
         ]
     },
     {
-        "id": "e1c5df332c1a2496",
+        "id": "ab231bc9acedace7",
         "type": "inject",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Trigger sensor update",
         "props": [
             {
@@ -1922,14 +1941,14 @@
         "y": 200,
         "wires": [
             [
-                "a6221bc2d96ac1bd"
+                "71211143a9609d72"
             ]
         ]
     },
     {
-        "id": "686bdc70be426ce6",
+        "id": "66c4ee64886f8f71",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Supply air temperature",
         "field": "payload",
         "fieldType": "msg",
@@ -1941,14 +1960,14 @@
         "y": 240,
         "wires": [
             [
-                "47240900f086f4bf"
+                "774efbfc64510e05"
             ]
         ]
     },
     {
-        "id": "47240900f086f4bf",
+        "id": "774efbfc64510e05",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/Supplyairtemperature/config",
         "qos": "0",
@@ -1964,9 +1983,9 @@
         "wires": []
     },
     {
-        "id": "2684a1d98bed3129",
+        "id": "9d6e1c6cb385948f",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Exhaust air temperature",
         "field": "payload",
         "fieldType": "msg",
@@ -1978,14 +1997,14 @@
         "y": 320,
         "wires": [
             [
-                "060516bc48c567ee"
+                "90dd31e36dcbbd91"
             ]
         ]
     },
     {
-        "id": "060516bc48c567ee",
+        "id": "90dd31e36dcbbd91",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/Exhaustairtemperature/config",
         "qos": "0",
@@ -2001,9 +2020,9 @@
         "wires": []
     },
     {
-        "id": "c667258519f4d6d7",
+        "id": "a9c302e663f32714",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Waste air temperature",
         "field": "payload",
         "fieldType": "msg",
@@ -2015,14 +2034,14 @@
         "y": 400,
         "wires": [
             [
-                "cf875bc5849195f4"
+                "d432fe53e436c1a9"
             ]
         ]
     },
     {
-        "id": "cf875bc5849195f4",
+        "id": "d432fe53e436c1a9",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/Wasteairtemperature/config",
         "qos": "0",
@@ -2038,9 +2057,9 @@
         "wires": []
     },
     {
-        "id": "e2ef619d441eae98",
+        "id": "c6cfa0edad34481b",
         "type": "comment",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "MQTT configuration triggers",
         "info": "",
         "x": 200,
@@ -2048,9 +2067,9 @@
         "wires": []
     },
     {
-        "id": "f5973c4fdaa56baf",
+        "id": "c2bc722b7f7a39e5",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Current supply fan speed RPM",
         "field": "payload",
         "fieldType": "msg",
@@ -2062,14 +2081,14 @@
         "y": 600,
         "wires": [
             [
-                "aae45bd7df4f9efa"
+                "cdb1fedec81831a9"
             ]
         ]
     },
     {
-        "id": "2a567ad6f8a11e22",
+        "id": "5d895464ddbd442c",
         "type": "comment",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Sensors fanspeed",
         "info": "",
         "x": 570,
@@ -2077,9 +2096,9 @@
         "wires": []
     },
     {
-        "id": "aae45bd7df4f9efa",
+        "id": "cdb1fedec81831a9",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/CurrentsupplyfanspeedRPM/config",
         "qos": "0",
@@ -2095,9 +2114,9 @@
         "wires": []
     },
     {
-        "id": "bb96dd63d64f29a0",
+        "id": "f97aa502db3ca2ad",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Current exhaust fan speed RPM",
         "field": "payload",
         "fieldType": "msg",
@@ -2109,14 +2128,14 @@
         "y": 640,
         "wires": [
             [
-                "6a5c453b8ba6e389"
+                "603bda2761c7cd02"
             ]
         ]
     },
     {
-        "id": "6a5c453b8ba6e389",
+        "id": "603bda2761c7cd02",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/CurrentexhaustfanspeedRPM/config",
         "qos": "0",
@@ -2132,9 +2151,9 @@
         "wires": []
     },
     {
-        "id": "e508f597fa0b0199",
+        "id": "2bfd075f51ffe696",
         "type": "comment",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Control buttons",
         "info": "",
         "x": 560,
@@ -2142,9 +2161,9 @@
         "wires": []
     },
     {
-        "id": "dad12d477c7f9754",
+        "id": "77ce239c57fd6aa3",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Boost",
         "field": "payload",
         "fieldType": "msg",
@@ -2156,14 +2175,14 @@
         "y": 820,
         "wires": [
             [
-                "2ebfe2f236c93438"
+                "47e462923a5a07cd"
             ]
         ]
     },
     {
-        "id": "2ebfe2f236c93438",
+        "id": "47e462923a5a07cd",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/switch/ftx/Boostmode/config",
         "qos": "0",
@@ -2179,9 +2198,9 @@
         "wires": []
     },
     {
-        "id": "b41b26fc3fda6fd4",
+        "id": "dc6a6c1bcbbd93e9",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Electric heater",
         "field": "payload",
         "fieldType": "msg",
@@ -2193,14 +2212,14 @@
         "y": 880,
         "wires": [
             [
-                "ef95fe19c16a269f"
+                "04979e164ab30ae6"
             ]
         ]
     },
     {
-        "id": "ef95fe19c16a269f",
+        "id": "04979e164ab30ae6",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/switch/ftx/Electricheater/config",
         "qos": "0",
@@ -2216,9 +2235,9 @@
         "wires": []
     },
     {
-        "id": "2ed59d9d6343849f",
+        "id": "92a451208d48ecba",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Away mode",
         "field": "payload",
         "fieldType": "msg",
@@ -2230,14 +2249,14 @@
         "y": 940,
         "wires": [
             [
-                "1895a8486106cc94"
+                "a352977c66db4693"
             ]
         ]
     },
     {
-        "id": "1895a8486106cc94",
+        "id": "a352977c66db4693",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/switch/ftx/Awaymode/config",
         "qos": "0",
@@ -2253,9 +2272,9 @@
         "wires": []
     },
     {
-        "id": "692c90143274aedb",
+        "id": "ad7a2f4b0a92063f",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Overpressure mode",
         "field": "payload",
         "fieldType": "msg",
@@ -2267,14 +2286,14 @@
         "y": 1000,
         "wires": [
             [
-                "83819c286fe44d71"
+                "1cee69132322b4a3"
             ]
         ]
     },
     {
-        "id": "83819c286fe44d71",
+        "id": "1cee69132322b4a3",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/switch/ftx/Overpressuremode/config",
         "qos": "0",
@@ -2290,9 +2309,9 @@
         "wires": []
     },
     {
-        "id": "020e0e22534a83b3",
+        "id": "a53b675a8d7ab757",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Summer night cooling",
         "field": "payload",
         "fieldType": "msg",
@@ -2304,14 +2323,14 @@
         "y": 1080,
         "wires": [
             [
-                "e3c655fa19c7077b"
+                "302104da15c25851"
             ]
         ]
     },
     {
-        "id": "e3c655fa19c7077b",
+        "id": "302104da15c25851",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/switch/ftx/SNC/config",
         "qos": "0",
@@ -2327,9 +2346,9 @@
         "wires": []
     },
     {
-        "id": "f13ebce745d17944",
+        "id": "2604b28f05815f58",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Current heating power",
         "field": "payload",
         "fieldType": "msg",
@@ -2341,14 +2360,14 @@
         "y": 680,
         "wires": [
             [
-                "c64878cd77a8985d"
+                "c497addf2c4437f0"
             ]
         ]
     },
     {
-        "id": "c64878cd77a8985d",
+        "id": "c497addf2c4437f0",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/sensor/ftx/Currentheatingpower/config",
         "qos": "0",
@@ -2364,9 +2383,9 @@
         "wires": []
     },
     {
-        "id": "a6221bc2d96ac1bd",
+        "id": "71211143a9609d72",
         "type": "switch",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "property": "payload",
         "propertyType": "msg",
@@ -2384,26 +2403,26 @@
         "y": 120,
         "wires": [
             [
-                "26de88e20150c590",
-                "686bdc70be426ce6",
-                "2684a1d98bed3129",
-                "c667258519f4d6d7",
-                "f5973c4fdaa56baf",
-                "bb96dd63d64f29a0",
-                "f13ebce745d17944",
-                "dad12d477c7f9754",
-                "b41b26fc3fda6fd4",
-                "2ed59d9d6343849f",
-                "692c90143274aedb",
-                "020e0e22534a83b3",
-                "d0a0328d5c71144e"
+                "b20115cd90061d1c",
+                "66c4ee64886f8f71",
+                "9d6e1c6cb385948f",
+                "a9c302e663f32714",
+                "c2bc722b7f7a39e5",
+                "f97aa502db3ca2ad",
+                "2604b28f05815f58",
+                "77ce239c57fd6aa3",
+                "dc6a6c1bcbbd93e9",
+                "92a451208d48ecba",
+                "ad7a2f4b0a92063f",
+                "a53b675a8d7ab757",
+                "12bd7febc01f0913"
             ]
         ]
     },
     {
-        "id": "0ba990847dd61bb3",
+        "id": "8a9fc416eb9c4e9b",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "d": true,
         "name": "Climate device",
         "field": "payload",
@@ -2416,14 +2435,14 @@
         "y": 1280,
         "wires": [
             [
-                "c43eecb664909be5"
+                "5bfec74fede6d71e"
             ]
         ]
     },
     {
-        "id": "c43eecb664909be5",
+        "id": "5bfec74fede6d71e",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/climate/ftx/Temperaturesetpoint/config",
         "qos": "0",
@@ -2439,9 +2458,9 @@
         "wires": []
     },
     {
-        "id": "d0a0328d5c71144e",
+        "id": "12bd7febc01f0913",
         "type": "template",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "Temperature setpoint",
         "field": "payload",
         "fieldType": "msg",
@@ -2453,14 +2472,14 @@
         "y": 1160,
         "wires": [
             [
-                "62c2a6e72227720a"
+                "5c52093ae2820b8b"
             ]
         ]
     },
     {
-        "id": "62c2a6e72227720a",
+        "id": "5c52093ae2820b8b",
         "type": "mqtt out",
-        "z": "e64ba185b16788ff",
+        "z": "0b9ec44e8ca49f0e",
         "name": "",
         "topic": "homeassistant/number/ftx/Temperaturesetpoint/config",
         "qos": "0",
